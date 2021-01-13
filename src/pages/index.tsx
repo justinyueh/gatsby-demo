@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import { Link } from 'gatsby';
+import axios from 'axios';
+import hello from '@utils/hello';
 
 import styles from '../styles/home.module.scss';
 
@@ -103,14 +105,24 @@ const links = [
 
 // markup
 const IndexPage: React.FC = () => {
+  const [user, setUser] = useState('');
   useEffect(() => {
+    axios
+      .get('https://woden.htj.pdd.net/wodenApi/user/getUserInfo', {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res);
+        setUser(res?.data?.data?.user || '');
+      });
+    hello();
     console.log('onload');
   }, []);
   return (
     <main style={pageStyles}>
-      <title>Home Page1</title>
+      <title>Home Page</title>
       <h1 style={headingStyles}>
-        Congratulations
+        Congratulations {user}
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
         <span role="img" aria-label="Party popper emojis">
