@@ -1,4 +1,8 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
+import { Button } from 'antd';
+import { Link } from 'gatsby';
+
+import styles from '../styles/home.module.scss';
 
 // styles
 const pageStyles = {
@@ -99,9 +103,12 @@ const links = [
 
 // markup
 const IndexPage: React.FC = () => {
+  useEffect(() => {
+    console.log('onload');
+  }, []);
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>Home Page1</title>
       <h1 style={headingStyles}>
         Congratulations
         <br />
@@ -110,7 +117,15 @@ const IndexPage: React.FC = () => {
           🎉🎉🎉
         </span>
       </h1>
-      <p style={paragraphStyles}>
+      <div>
+        <Button type="primary">Click me!</Button>
+      </div>
+      <div>
+        <Button type="link">
+          <Link to="/list">go to list page</Link>
+        </Button>
+      </div>
+      <p style={paragraphStyles} className={styles.abcdefg}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page update in real-time.{' '}
         <span role="img" aria-label="Sunglasses smiley emoji">
           😎

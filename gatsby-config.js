@@ -34,5 +34,21 @@ module.exports = {
       },
       __key: 'pages',
     },
+    {
+      resolve: 'gatsby-plugin-import',
+      options: {
+        libraryName: 'antd',
+        style: true, // or 'css'
+      },
+    },
+    {
+      resolve: `gatsby-plugin-less`,
+      options: {
+        lessOptions: {
+          javascriptEnabled: true,
+        },
+      },
+    },
+    'gatsby-plugin-sass',
   ],
 };
