@@ -42,7 +42,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-less`,
+      resolve: 'gatsby-plugin-less',
       options: {
         lessOptions: {
           javascriptEnabled: true,
@@ -51,12 +51,13 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     {
-      resolve: `gatsby-alias-imports`,
+      resolve: 'gatsby-alias-imports',
       options: {
         aliases: {
-          styles: `src/styles`,
-          config: `config/`,
-          '@utils': 'src/utils/',
+          // '@styles': `src/styles`,
+          // '@config': `config/`,
+          // '@utils': 'src/utils/',
+          '@': 'src/',
         },
       },
     },

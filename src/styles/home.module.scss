@@ -1,9 +1,15 @@
-.abcdefg {
-  border: 1px solid red;
-  padding: 10px;
-}
+.box {
+  position: relative;
+  border: 1px solid #eba320;
+  padding: 30px;
 
-.body {
-  color: blue;
-  font-weight: 300;
+  &::before {
+    content: "sass worked";
+    background-color: rgb(0, 255, 106);
+    display: block;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }

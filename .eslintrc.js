@@ -12,13 +12,13 @@ module.exports = {
   },
   rules: {
     // quotes: 'off',
-    // "@typescript-eslint/quotes": [
-    //   2,
-    //   "single",
-    //   {
-    //     avoidEscape: true,
-    //   },
-    // ],
+    '@typescript-eslint/quotes': [
+      2,
+      'single',
+      {
+        avoidEscape: true,
+      },
+    ],
     //   indent: ['error', 2, { SwitchCase: 1 }],
     'prettier/prettier': [
       'error',

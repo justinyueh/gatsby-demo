@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from 'antd';
-import { Link } from 'gatsby';
-import axios from 'axios';
-import hello from '@utils/hello';
-
-import styles from '../styles/home.module.scss';
+import React, { useEffect } from 'react';
+import { Button, Divider, Tag, message } from 'antd';
+import Helmet from 'react-helmet';
+import hello from '@/utils/hello';
+import Navigator from '@/components/Navigator';
+import styles from '@/styles/home.module.scss';
 
 // styles
 const pageStyles = {
@@ -16,7 +15,6 @@ const pageStyles = {
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
-  maxWidth: 320,
 };
 const headingAccentStyles = {
   color: '#663399',
@@ -105,39 +103,42 @@ const links = [
 
 // markup
 const IndexPage: React.FC = () => {
-  const [user, setUser] = useState('');
   useEffect(() => {
-    axios
-      .get('https://woden.htj.pdd.net/wodenApi/user/getUserInfo', {
-        withCredentials: true,
-      })
-      .then((res) => {
-        console.log(res);
-        setUser(res?.data?.data?.user || '');
-      });
     hello();
-    console.log('onload');
   }, []);
+
+  const handleClick = () => {
+    message.success('ant design worked');
+  };
+
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <Helmet title="Home Page" defer={false} />
+
+      <Navigator />
+      <Divider />
       <h1 style={headingStyles}>
-        Congratulations {user}
+        Congratulations
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
       </h1>
+      <Divider />
       <div>
-        <Button type="primary">Click me!</Button>
+        <Tag>Gatsby</Tag>
+        <Tag>Typescript</Tag>
+        <Tag>Sass with Css Module</Tag>
+        <Tag>ant design</Tag>
+        <Tag>SSR</Tag>
       </div>
-      <div>
-        <Button type="link">
-          <Link to="/list">go to list page</Link>
-        </Button>
-      </div>
-      <p style={paragraphStyles} className={styles.abcdefg}>
+      <Divider />
+      <Button type="primary" onClick={handleClick}>
+        Click me!
+      </Button>
+      <Divider />
+      <p style={paragraphStyles} className={styles.box}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page update in real-time.{' '}
         <span role="img" aria-label="Sunglasses smiley emoji">
           😎

@@ -15,7 +15,7 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "paths": {
-      "@utils/*": ["./src/utils/*"]
+      "@/*": ["./src/*"]
     }
   }
 }
